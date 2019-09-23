@@ -2,7 +2,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id||integer|null: false, foreign_key: true|
+|id|integer|null: false, foreign_key: true|
 |name|varchar|null: false, foreign_key: true|
 |email|varchar|null: false, foreign_key: true|
 |password|varchar|null: false, foreign_key: true|
@@ -14,7 +14,7 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id||integer|null: false, foreign_key: true|
+|id|integer|null: false, foreign_key: true|
 |name|varchar|null: false, foreign_key: true|
 
 ### Association
@@ -23,7 +23,7 @@
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id||integer|null: false, foreign_key: true|
+|id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
@@ -34,7 +34,7 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id||integer|null: false, foreign_key: true|
+|id|integer|null: false, foreign_key: true|
 |body|mediumtext|null: false, foreign_key: true|
 |image|mediumblob|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
