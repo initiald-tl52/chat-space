@@ -15,21 +15,20 @@ div {
   line-height: 30px;
 }
 
-chat-side {
+.chat-side {
   width: 300px;
   color: white;
   float: left;
+  & .side-header{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding:0 20px;
+    &__box{
+      &__user-name{
+        
+      }
+    }
+  }
 }
-// .wrapper{
-
-// }
-// .chatside{
-
-// }
-// .side-header{
-//   &__box{
-//     &__user-name{
-
-//     }
-//   }
-// }
