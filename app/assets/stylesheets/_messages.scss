@@ -1,3 +1,11 @@
+
+* {
+  box-sizing: border-box;
+}
+div {
+  display: block;
+}
+
 .flash-box {
   height: 30px;
   width: 100%;
@@ -6,3 +14,16 @@
   text-align: center;
   line-height: 30px;
 }
+// .wrapper{
+
+// }
+// .chatside{
+
+// }
+// .side-header{
+//   &__box{
+//     &__user-name{
+
+//     }
+//   }
+// }
