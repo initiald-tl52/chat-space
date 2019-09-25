@@ -103,5 +103,12 @@ $elem_blue: #38AEF0;
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
+    & .message {
+      padding-bottom: 40px;
+    }
   }
 }
+// .message__upper-info {
+//   display: flex;
+//   margin-bottom: 10px;
+// }
