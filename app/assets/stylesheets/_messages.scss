@@ -24,6 +24,9 @@ ul {
 ol, ul {
   list-style: none;
 }
+a{
+  text-decoration: none;
+}
 
 .flash-box {
   height: 30px;
@@ -36,10 +39,10 @@ ol, ul {
 
 .chat-side {
   width: 300px;
-  color: white;
+  color: #ffffff;
   float: left;
   & a {
-    color: white;
+    color: #ffffff;
   }
   & .side-header{
     background-color: #253141;
@@ -55,7 +58,6 @@ ol, ul {
       &__user-name{
         font-size: 16px;
         font-weight: bold;
-        color: #ffffff;
       }
       &__menu{
         display: flex;
@@ -67,5 +69,15 @@ ol, ul {
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scroll;
+    & .group{
+      margin-bottom: 40px;
+      &__group-name{
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &__latest-message{
+        font-size: 11px;
+      }
+    }
   }
 }
