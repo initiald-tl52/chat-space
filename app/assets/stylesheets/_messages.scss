@@ -146,6 +146,9 @@ $elem_blue: #38AEF0;
         top: 10px;
         right: 10px;
         cursor: pointer;
+        &__file {
+        display: none;
+        }
       }
     }
   }
