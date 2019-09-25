@@ -8,25 +8,25 @@
           ユーザー名
         %ul.side-header__box__menu
           %li.side-header__box__menu__new-group
-            %a(href="")
+            = link_to '#' do
               %i.fa.fa-edit
           %li.side-header__box__menu__edit-use
-            %a(href="")
+            = link_to '#' do
               %i.fa.fa-cog
     .groups
-      %a(href="")
+      = link_to '#' do
         .group
           %p.group__group-name
             グループ名
           %p.group__latest-message
             最新メッセージ
-      %a(href="")
+      = link_to '','#'
   .chat-main
     .main-header
       .main-header__left-box
         %h2(class = "main-header__left-box__current-group" data-groupid = "")
           グループ名
-      %a(href="")
+      = link_to '#' do
         .main-header__edit-btn
           Edit
     .messages
