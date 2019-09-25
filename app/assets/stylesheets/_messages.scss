@@ -46,6 +46,9 @@ $elem_blue: #38AEF0;
       }
       &__menu{
         display: flex;
+        & li {
+          margin-left: 0.3rem;
+        }
       }
     }
   }
