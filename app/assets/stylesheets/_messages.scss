@@ -14,10 +14,12 @@ a{
 $elem_blue: #38AEF0;
 
 .flash-box {
+  height: 30px;
   width: 100%;
   background-color:$elem_blue;
   color: white;
   text-align: center;
+  line-height: 30px;
 }
 
 .chat-side {
