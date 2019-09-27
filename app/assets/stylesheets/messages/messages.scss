@@ -20,10 +20,11 @@ $elem_blue: #38AEF0;
   text-align: center;
 }
 .wrapper{
-  display: flex;
+  // display: flex;
   .chat-side {
     width: 300px;
     color: #ffffff;
+    float: left;
     & a {
       color: #ffffff;
     }
@@ -70,6 +71,7 @@ $elem_blue: #38AEF0;
   
   .chat-main { 
     width: calc(100vw - 300px);
+    float: left;
     & .main-header {
       height: 100px;
       padding: 0 40px;
