@@ -9,6 +9,7 @@
         .main-header__edit-btn
           Edit
     .messages
+      = render @messages
       -# .message
       -#   .message__upper-info
       -#     %p.message__upper-info__talker
@@ -18,12 +19,10 @@
       -#   %p.message__text
       -#     テキスト
     .form
-      %form(class="new_message" id="new_message" action="")
-        %input(name="utf8" type="hidden")
-        %input(name="authenticity_token" type="hidden")
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'fauthenticity_token', placeholder: 'type a message'
         .input-box
-          %input(class="input-box__text" placeholder="type a message" type="text")
-          %label(class="input-box__image" for="message_image")
-            %i.fa.fa-image
-            %input(class ="input-box__image__file" id="message_image" type="file" name="message[image]")
-        %input(class = "submit-btn" name="commit" type="submit"value="Send")
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'submit-btn'
