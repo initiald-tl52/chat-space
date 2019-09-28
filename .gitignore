@@ -16,3 +16,10 @@
 # Ignore Byebug command history file.
 .byebug_history
 public/uploads/*
+
+# Ignore all image file
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
