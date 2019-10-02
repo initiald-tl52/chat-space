@@ -1,6 +1,7 @@
 $(function() {
-  $(".submit-btn").on("click", function() {
-    var text = $(".input-box__text").val();
-    
+  $("#new_message").on("submit", function(e) {
+    e.preventDefault();
+    var form_data = new FormData(this);
+
   });
 });
