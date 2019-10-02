@@ -1,5 +1,6 @@
 $(function() {
   $(".submit-btn").on("click", function() {
-    console.log("クリック");
+    var text = $(".input-box__text").val();
+    
   });
 });
