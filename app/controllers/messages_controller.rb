@@ -15,6 +15,10 @@ class MessagesController < ApplicationController
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
+    # respond_to do |format|
+    #   format.html { render ... } # この中はHTMLリクエストの場合に呼ばれる
+    #   format.json { render ... } # この中はJSONリクエストの場合に呼ばれる
+    # end
   end
 
   def message_params
