@@ -11,13 +11,16 @@ $(function() {
                     </div>
                   </div>
                   <div class="lower-message">
-                    <p class="message__text">
-                    ${message.content}
-                    </p>
+                    ${message.content?
+                    `<p class="message__text">
+                    ${message.content}</p>`:``}
+                    ${message.image.url?
+                    `<img src=${message.image.url} class="lower-message__image">`:``}
                   </div>
                 </div>`
     return html;
   }
+
   $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var form_data = new FormData(this);
@@ -32,12 +35,14 @@ $(function() {
     })
     .done(function(message){
       var html = appendProduct(message);
-      console.log(html);
       $('.messages').append(html);
-      console.log($('.messages'));
+      $('.input-box__text').val('');
     })
     .fail(function(){
-      //通信に失敗した場合の処理
+      alert('error');
     })
+    .always(function(){
+      $(".submit-btn").removeAttr("disabled");
+    });
   });
 });
