@@ -20,10 +20,12 @@ $(function() {
                 </div>`
     return html;
   }
+
   function goBottom(targetclass) {
     var target = $(targetclass);
     $(target).scrollTop(target[0].scrollHeight);
   }
+
   $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var form_data = new FormData(this);
