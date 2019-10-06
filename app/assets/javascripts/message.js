@@ -41,7 +41,7 @@ $(function() {
     .done(function(message){
       var html = appendProduct(message);
       $('.messages').append(html);
-      $('.input-box__text').val('');
+      $('.new_message')[0].reset();
       goBottom('.messages');
     })
     .fail(function(){
