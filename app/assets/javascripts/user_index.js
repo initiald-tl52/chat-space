@@ -10,10 +10,9 @@ $(function() {
       data: { keyword: input },
       dataType: 'json',
     })
-    .done(function(names){
-      console.log("names "+names)
-      names.forEach(function(name){
-        console.log("name "+name);
+    .done(function(users){
+      users.forEach(function(user){
+        
       });
       // テキストフィールド生成して、ユーザー名を一つずつ入れる。
     })
