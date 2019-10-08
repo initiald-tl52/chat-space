@@ -3,13 +3,13 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2(class = "main-header__left-box__current-group" data-groupid = "")
+        %h2.main-header__left-box__current-group
           = @group.name
         %ul.main-header__left-box__member-list
           Member:
           -@group.users.each do|user|
-            %li(class = "main-header__left-box__member-list__member") 
-              =user.name  
+            %li.main-header__left-box__member-list__member 
+              = user.name  
       = link_to edit_group_path(@group) do
         .main-header__edit-btn
           Edit
