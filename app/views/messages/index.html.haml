@@ -4,7 +4,7 @@
     .main-header
       .main-header__left-box
         %h2(class = "main-header__left-box__current-group" data-groupid = "")
-          グループ名
+          = @group.name
       = link_to edit_group_path(@group) do
         .main-header__edit-btn
           Edit
