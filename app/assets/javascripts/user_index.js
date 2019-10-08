@@ -8,7 +8,7 @@ $(function() {
     names_component.append(html);
   }
 
-  function show_names(id,name){
+  function show_name(id,name){
     var html =`<div class='chat-group-user'>
                 <input name='group[user_ids][]' type='hidden' value='${id}'>
                 <p class='chat-group-user__name'>${name}</p>
@@ -21,7 +21,7 @@ $(function() {
     var id = $(this).data('user-id');
     var name = $(this).data('user-name');
     $(this).parent().remove();
-    show_names(id,name);
+    show_name(id,name);
   });
   $(document).on('click','.user-search-remove', function(){
     $(this).parent().remove();
