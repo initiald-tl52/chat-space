@@ -1,10 +1,10 @@
 $(function() {
   function appendProduct(message) {
     var html = 
-                `<div class="message">
+                `<div class="message" data-id=${message.id}>
                   <div class="message__upper-info">
                     <div class="message__upper-info__talker">
-                    ${message.name}
+                    ${message.user_name}
                     </div>
                     <div class="message__upper-info__date">
                     ${message.created_at}
@@ -12,7 +12,7 @@ $(function() {
                   </div>
                   <div class="lower-message">
                     ${message.content?
-                    `<p class="message__text">
+                    `<p class="message__text" data-message-id=${message.id}>
                     ${message.content}</p>`:``}
                     ${message.image.url?
                     `<img src=${message.image.url} class="lower-message__image">`:``}
@@ -51,4 +51,29 @@ $(function() {
       $(".submit-btn").removeAttr("disabled");
     });
   });
+  
+  var reloadMessages = function() {
+    last_message_id = $('.message__text:last').data('message-id');
+    console.log("last_message_id  "+last_message_id);
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(index, message) {
+        insertHTML += appendProduct(message);
+      });
+      $('.messages').append(insertHTML);
+      console.log("messages offset   "+$('.message__text:last').offset().top);
+      $("html,body").animate({scrollTop:$('.message__text:last').offset().top});
+      console.log("scrolled");
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
