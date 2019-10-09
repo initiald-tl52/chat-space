@@ -21,11 +21,10 @@ $(function() {
     return html;
   }
 
-  function goBottom(targetclass) {
-    var target = $(targetclass);
-    $(target).scrollTop(target[0].scrollHeight);
+  function go_bottom(scrollclass,targetclass) {
+    $(scrollclass).animate({scrollTop:$(targetclass).offset().top});
   }
-
+  
   $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var form_data = new FormData(this);
@@ -42,7 +41,7 @@ $(function() {
       var html = appendProduct(message);
       $('.messages').append(html);
       $('.new_message')[0].reset();
-      goBottom('.messages');
+      go_bottom('.messages','.message__text:last');
     })
     .fail(function(){
       alert('error');
@@ -70,7 +69,7 @@ $(function() {
         });
         console.log("2");
         $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop:$('.message__text:last').offset().top});
+        go_bottom('.messages','.message__text:last');
       }
     })
     .fail(function() {
