@@ -1,5 +1,8 @@
 $(function() {
   function appendProduct(message) {
+
+    var content = message.content?`<p class="message__text" >${message.content}</p>`:``;
+    var image = message.image.url?`<img src=${message.image.url} class="lower-message__image">`:``;
     var html = 
                 `<div class="message" data-id=${message.id}>
                   <div class="message__upper-info">
@@ -11,20 +14,17 @@ $(function() {
                     </div>
                   </div>
                   <div class="lower-message">
-                    ${message.content?
-                    `<p class="message__text" >
-                    ${message.content}</p>`:``}
-                    ${message.image.url?
-                    `<img src=${message.image.url} class="lower-message__image">`:``}
+                    ${content}
+                    ${image}
                   </div>
                 </div>`
     return html;
   }
-
-  function go_bottom(scrollclass,targetclass) {
-    $(scrollclass).animate({scrollTop:$(targetclass).offset().top});
-  }
   
+  function go_bottom(scrollclass) {
+    $(scrollclass).animate({scrollTop:($(scrollclass).get(0).scrollHeight)});
+  }
+
   $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var form_data = new FormData(this);
@@ -41,7 +41,7 @@ $(function() {
       var html = appendProduct(message);
       $('.messages').append(html);
       $('.new_message')[0].reset();
-      go_bottom('.messages','.message__text:last');
+      go_bottom('.messages');
     })
     .fail(function(){
       alert('error');
@@ -62,14 +62,11 @@ $(function() {
     .done(function(messages) {
       if (messages.length){
         var insertHTML = ''
-        console.log("1");
         $.each(messages, function(index, message) {
-          console.log("message.id  "+message.id);
           insertHTML += appendProduct(message);
         });
-        console.log("2");
         $('.messages').append(insertHTML);
-        go_bottom('.messages','.message__text:last');
+        go_bottom('.messages');
       }
     })
     .fail(function() {
