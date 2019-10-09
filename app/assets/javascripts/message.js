@@ -12,7 +12,7 @@ $(function() {
                   </div>
                   <div class="lower-message">
                     ${message.content?
-                    `<p class="message__text" data-message-id=${message.id}>
+                    `<p class="message__text" >
                     ${message.content}</p>`:``}
                     ${message.image.url?
                     `<img src=${message.image.url} class="lower-message__image">`:``}
@@ -53,7 +53,7 @@ $(function() {
   });
   
   var reloadMessages = function() {
-    last_message_id = $('.message__text:last').data('message-id');
+    last_message_id = $('.message:last').data('id');
     $.ajax({
       url: 'api/messages',
       type: 'get',
@@ -62,10 +62,13 @@ $(function() {
     })
     .done(function(messages) {
       if (messages.length){
-        var insertHTML = '';
+        var insertHTML = ''
+        console.log("1");
         $.each(messages, function(index, message) {
+          console.log("message.id  "+message.id);
           insertHTML += appendProduct(message);
         });
+        console.log("2");
         $('.messages').append(insertHTML);
         $('.messages').animate({scrollTop:$('.message__text:last').offset().top});
       }
@@ -74,5 +77,8 @@ $(function() {
       alert('error');
     });
   };
-  setInterval(reloadMessages, 5000);
+  var current_path = location.pathname
+  if(current_path.match(/^groups/&&/messages$/)){
+    setInterval(reloadMessages, 5000);
+  }
 });
