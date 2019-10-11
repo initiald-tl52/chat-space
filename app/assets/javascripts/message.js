@@ -41,6 +41,7 @@ $(function() {
       var html = appendProduct(message);
       $('.messages').append(html);
       $('.new_message')[0].reset();
+      
       go_bottom('.messages');
     })
     .fail(function(){
